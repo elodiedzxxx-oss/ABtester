@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@500;700;800&display=swap");
+
+:root {
+  --bg: #ecfeff;
+  --bg-2: #f0fdfa;
+  --primary: #0891b2;
+  --primary-dark: #0e7490;
+  --accent: #14b8a6;
+  --text: #0f172a;
+  --muted: #334155;
+  --card: rgba(255, 255, 255, 0.85);
+  --border: rgba(8, 145, 178, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: linear-gradient(140deg, var(--bg), var(--bg-2));
+  min-height: 100vh;
+}
+
+.bg-shape {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.bg-shape-1 {
+  width: 260px;
+  height: 260px;
+  background: #06b6d4;
+  top: -50px;
+  right: -20px;
+}
+
+.bg-shape-2 {
+  width: 300px;
+  height: 300px;
+  background: #2dd4bf;
+  bottom: -90px;
+  left: -60px;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  margin-bottom: 8px;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-family: "Baloo 2", "Nunito", sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card {
+  backdrop-filter: blur(8px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(8, 145, 178, 0.12);
+  padding: 18px;
+  margin-top: 16px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.upload-box,
+.panel {
+  background: #ffffff;
+  border: 1px solid #d7eef3;
+  border-radius: 14px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-box::after,
+.panel::after {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  right: -40px;
+  top: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.22), rgba(20, 184, 166, 0));
+  pointer-events: none;
+}
+
+h2, h3, h4 {
+  margin-top: 0;
+}
+
+input[type="file"],
+select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  font-size: 0.92rem;
+  color: #0f172a;
+}
+
+input[type="file"]::file-selector-button {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0ea5b7, #1dc8b4);
+  color: #fff;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+}
+
+input[type="file"]::file-selector-button:hover {
+  filter: brightness(0.95);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.preview,
+.processed-img {
+  width: 100%;
+  min-height: 170px;
+  max-height: 260px;
+  object-fit: contain;
+  background: #f8fafc;
+  border: 1px dashed #b9e4ee;
+  border-radius: 10px;
+}
+
+.preview.is-empty,
+.processed-img.is-empty {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(14, 165, 184, 0.22) 0 26px, transparent 27px),
+    radial-gradient(circle at 82% 80%, rgba(45, 212, 191, 0.24) 0 22px, transparent 23px),
+    repeating-linear-gradient(
+      135deg,
+      rgba(148, 231, 224, 0.18) 0 10px,
+      rgba(148, 231, 224, 0.08) 10px 20px
+    ),
+    #f7fdff;
+}
+
+.processed-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #0f766e);
+}
+
+.btn-secondary {
+  background: #eefafd;
+  color: #0e7490;
+  border: 1px solid #bdeaf3;
+}
+
+.result-header p {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.insight-list {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .grid-2,
+  .processed-grid {
+    grid-template-columns: 1fr;
+  }
+}
